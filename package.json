@@ -3,9 +3,6 @@
   "version": "1.0.0",
   "description": "A small utility library for downloading files from the web, while providing a progress reporting",
   "main": "index.js",
-  "scripts": {
-    "start": "node index"
-  },
   "keywords": [
     "download",
     "file",
@@ -16,6 +13,14 @@
     "email": "aboeyas87@gmail.com",
     "url": "https://github.com/waelhasan"
   },
+  "repository": {
+    "type": "github",
+    "url": "https://github.com/waelhasan/filedljs"
+  },
+  "bugs": {
+    "url": "https://github.com/waelhasan/filedljs/issues"
+  },
+  "homepage": "https://github.com/waelhasan/filedljs",
   "license": "MIT",
   "dependencies": {
     "request": "^2.88.0",
