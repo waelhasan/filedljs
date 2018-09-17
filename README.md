@@ -111,8 +111,11 @@ download('http://file.allitebooks.com/20180714/React%20in%20Action.pdf')
 ```
 
 ### Todo:
+
+- Add tests
 - Automatically retry downloading files
 - Add proper comments
+- Upload to npm, then use it in [allitebooks-dl](https://github.com/waelhasan/allitebooks-dl)
 
 ## Authors
 
