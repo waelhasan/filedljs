@@ -1,0 +1,25 @@
+{
+  "name": "filedljs",
+  "version": "1.0.0",
+  "description": "A small utility library for downloading files from the web, while providing a progress reporting",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index"
+  },
+  "keywords": [
+    "download",
+    "file",
+    "web"
+  ],
+  "author": {
+    "name": "Wael Hasan",
+    "email": "aboeyas87@gmail.com",
+    "url": "https://github.com/waelhasan"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "request": "^2.88.0",
+    "request-progress": "^3.0.0",
+    "shelljs": "^0.8.2"
+  }
+}
