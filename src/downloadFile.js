@@ -1,75 +1,40 @@
-const fs = require('fs');
-const progress = require('request-progress');
-const request = require('request');
-
 const handleArgs = require('./handleArgs');
-const handlePathCreation = require('./handlePathCreation');
-const ProgressMonitor = require('./ProgressMonitor');
+const download = require('./download');
 
 const defaultOptions = {
     baseDir: '.',
     createPathIfNotExist: true,
     downloadHaltMaxTime: 1 * 60 * 1000,
     onProgress: function () { },
-    deleteIfLessSize: true
+    deleteIfLessSize: true,
+    maxِAttempts: 2
 };
 
-const download = function (_filePath, _fileLink, _options) {
+const downloadFile = async function (_filePath, _fileLink, _options) {
     let { filePath, fileLink, options, useBaseDir } = handleArgs(_filePath, _fileLink, _options);
     const {
         baseDir,
         createPathIfNotExist,
         onProgress,
         deleteIfLessSize,
-        downloadHaltMaxTime
+        downloadHaltMaxTime,
+        maxِAttempts
     } = { ...defaultOptions, ...options };
     filePath = useBaseDir ? `${baseDir}/${filePath}` : filePath;
 
-    handlePathCreation(filePath, createPathIfNotExist);
+    let attempNo = 0;
+    while (attempNo < maxِAttempts) {
+        attempNo++;
 
-    const file = fs.createWriteStream(filePath);
-
-    return new Promise((resolve, reject) => {
-        let progressMonitor;
-        let totalSize = 1000;
-
-        const onProgressHandler = (state) => {
-            progressMonitor.handleNewProgress();
-            onProgress(state);
-            totalSize = state.size.total;
-            progressMonitor.setTotalSize(totalSize);
-        };
-
-        const onErrorHandler = (error) => {
-            progressMonitor.cancelTimer();
-            rejectFn(error);
-        };
-
-        const onEndHandler = () => {
-            progressMonitor.cancelTimer();
-            if (deleteIfLessSize)
-                if (fs.existsSync(filePath))
-                    fs.statSync(filePath).size >= totalSize ? resolve() : rejectFn('not the same size.')
-                else
-                    rejectFn();
-            else
-                resolve();
-        };
-
-        const req = progress(request(fileLink, {}))
-            .on('progress', onProgressHandler)
-            .on('error', onErrorHandler)
-            .on('end', onEndHandler);
-
-        req.pipe(file);
-
-        const rejectFn = (error) => {
-            req.abort();
-            reject(error);
-        };
-
-        progressMonitor = new ProgressMonitor(resolve, rejectFn, filePath, downloadHaltMaxTime);
-    });
+        try {
+            return await download(filePath, createPathIfNotExist, onProgress, deleteIfLessSize, fileLink, downloadHaltMaxTime);
+        }
+        catch (error) {
+            console.log('[X] ERROR: Failed in attempt No', attempNo, ', due to: ', error);
+            if (attempNo >= maxِAttempts)
+                throw error;
+        }
+    }
 };
 
-module.exports = download;
+module.exports = downloadFile;
