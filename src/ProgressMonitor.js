@@ -25,7 +25,7 @@ class ProgressMonitor {
     }
 
     handleNewProgress() {
-        // clearInterval(this.timer);
+        clearInterval(this.timer);
         this.createTimer();
     }
 
