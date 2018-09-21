@@ -3,6 +3,7 @@ A small utility library for downloading files from the web, providing the follow
 - Accepts an onProgress callback, which receives a state object to indicate the progress of the downloading
 - Automatically monitor the download, and abort it if it is halted for a specific period (configurable)
 - Delete file if download didn't complete successfully (configurable)
+- Automatically retry downloading the file if something went wrong, and the maximum number of download attempts is configurable
 
 ### Installing
 
@@ -104,6 +105,17 @@ downloadFile(
 )
 ```
 
+- Automatically retry downloading the file for 3 times
+
+```js
+downloadFile(
+    'http://file.allitebooks.com/20180714/React%20in%20Action.pdf',
+    {
+        maxِAttempts: 3
+    }
+)
+```
+
 - Using all default values
 
 ```js
@@ -113,7 +125,6 @@ downloadFile('http://file.allitebooks.com/20180714/React%20in%20Action.pdf')
 ### Todo:
 
 - Add tests
-- Automatically retry downloading files
 - Add proper comments
 - Upload to npm, then use it in [allitebooks-dl](https://github.com/waelhasan/allitebooks-dl)
 
