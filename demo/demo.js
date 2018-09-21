@@ -1,8 +1,8 @@
-const { download } = require('..');
+const { downloadFile } = require('..');
 const logProgress = require('./logProgress')
 
-download(
-    'http://file.allitebooks.com/20180714/React%20in%20Action.pdf',
+downloadFile(
+    'http://file.allitebooks.com/20160423/Kubernetes%20Microservices%20with%20Docker.pdf',
     {
         baseDir: './files',
         onProgress: logProgress

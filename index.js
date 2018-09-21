@@ -1,3 +1,3 @@
-const { download } = require('./src');
+const { downloadFile } = require('./src');
 
-module.exports = { download };
+module.exports = { downloadFile };
