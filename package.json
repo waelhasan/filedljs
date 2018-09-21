@@ -1,6 +1,6 @@
 {
   "name": "filedljs",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "A small utility library for downloading files from the web, while providing a progress reporting",
   "main": "index.js",
   "keywords": [
