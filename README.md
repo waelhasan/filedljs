@@ -26,10 +26,10 @@ npm test
 ### Usage
 
 ```js
-const { download } = require('filedljs');
+const { downloadFile } = require('filedljs');
 const logProgress = require('./logProgress')
 
-download(
+downloadFile(
     <file_path>, // optional
     <file_url>,
     <options_object> // optional
@@ -44,10 +44,10 @@ download(
 - Using the original name of the file, and specifying the download folder
 
 ```js
-const { download } = require('filedljs');
+const { downloadFile } = require('filedljs');
 const logProgress = require('./logProgress')
 
-download(
+downloadFile(
     'http://file.allitebooks.com/20180714/React%20in%20Action.pdf',
     {
         baseDir: './files'
@@ -61,7 +61,7 @@ download(
 - Specifying the full path and file name
 
 ```js
-download(
+downloadFile(
     './files/test.pdf',
     'http://file.allitebooks.com/20180714/React%20in%20Action.pdf',
     {
@@ -74,7 +74,7 @@ download(
 - Prevent deleting the file if the download didn't complete (default: true)
 
 ```js
-download(
+downloadFile(
     'http://file.allitebooks.com/20180714/React%20in%20Action.pdf',
     {
         deleteIfLessSize: false
@@ -85,7 +85,7 @@ download(
 - Specify the maximum allowed time for download halt (default: 1 minute)
 
 ```js
-download(
+downloadFile(
     'http://file.allitebooks.com/20180714/React%20in%20Action.pdf',
     {
         downloadHaltMaxTime: 2 * 60 * 1000, // in milliseconds
@@ -96,7 +96,7 @@ download(
 - Prevent creating the file path if it doesn't exist (default: true)
 
 ```js
-download(
+downloadFile(
     'http://file.allitebooks.com/20180714/React%20in%20Action.pdf',
     {
         createPathIfNotExist: false
@@ -107,7 +107,7 @@ download(
 - Using all default values
 
 ```js
-download('http://file.allitebooks.com/20180714/React%20in%20Action.pdf')
+downloadFile('http://file.allitebooks.com/20180714/React%20in%20Action.pdf')
 ```
 
 ### Todo:
