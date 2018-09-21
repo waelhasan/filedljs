@@ -122,6 +122,21 @@ downloadFile(
 downloadFile('http://file.allitebooks.com/20180714/React%20in%20Action.pdf')
 ```
 
+### Default options:
+
+These are the default values of the option object fields:
+
+```js
+const defaultOptions = {
+    baseDir: '.',
+    createPathIfNotExist: true,
+    downloadHaltMaxTime: 1 * 60 * 1000,
+    onProgress: function () { },
+    deleteIfLessSize: true,
+    maxِAttempts: 2
+};
+```
+
 ### Todo:
 
 - Add tests
