@@ -23,12 +23,14 @@
   "homepage": "https://github.com/waelhasan/filedljs",
   "license": "MIT",
   "dependencies": {
+    "nyc": "^13.1.0",
     "request": "^2.88.0",
     "request-progress": "^3.0.0",
     "shelljs": "^0.8.2"
   },
   "scripts": {
-    "test": "mocha './test/spec/*.js'"
+    "test": "mocha './test/spec/*.js'",
+    "report": "nyc mocha './test/spec/*.js'"
   },
   "devDependencies": {
     "mocha": "^5.2.0"
