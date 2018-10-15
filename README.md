@@ -148,6 +148,7 @@ const defaultOptions = {
 ## Authors
 
 * **Wael Hasan** - [waelhasan](https://github.com/waelhasan)
+* **M4rk9696** - [M4rk9696](https://github.com/M4rk9696)
 
 ## License
 
