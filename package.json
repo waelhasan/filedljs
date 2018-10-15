@@ -13,6 +13,12 @@
     "email": "aboeyas87@gmail.com",
     "url": "https://github.com/waelhasan"
   },
+  "contributors": [
+    {
+      "name": "M4rk9696",
+      "url": "https://github.com/M4rk9696"
+    }
+  ],
   "repository": {
     "type": "github",
     "url": "https://github.com/waelhasan/filedljs"
