@@ -139,7 +139,10 @@ const defaultOptions = {
 
 ### Todo:
 
-- Add tests
+- Add more tests:
+    - unit tests 
+    - testing the download functionality (mocking the network)
+    - testing ProgressMonitor (mocking timers)
 - Add proper comments
 
 ## Authors
