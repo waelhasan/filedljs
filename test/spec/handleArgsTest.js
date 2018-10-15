@@ -1,6 +1,5 @@
 const assert = require('assert');
 const handleArgs = require('./../../src/handleArgs');
-const downloadFile = require('./../../src/downloadFile');
 
 describe('handleArgsTest', function() {
     // Possible break in windows, refer to https://nodejs.org/docs/latest/api/path.html#path_windows_vs_posix
