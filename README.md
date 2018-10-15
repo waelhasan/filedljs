@@ -141,7 +141,6 @@ const defaultOptions = {
 
 - Add tests
 - Add proper comments
-- Upload to npm, then use it in [allitebooks-dl](https://github.com/waelhasan/allitebooks-dl)
 
 ## Authors
 
